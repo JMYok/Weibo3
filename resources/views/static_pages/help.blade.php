@@ -3,6 +3,6 @@
 
 
 @section('content')
-<em>帮助</em>
+<h1>帮助</h1>
 
 @stop

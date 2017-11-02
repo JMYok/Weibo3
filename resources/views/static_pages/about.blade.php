@@ -3,5 +3,5 @@
 
 
 @section('content')
-<em>关于</em>
+<h1>关于</h1>
 @stop
