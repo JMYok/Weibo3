@@ -18,4 +18,10 @@ Route::get('/about','StaticPageController@about')->name('about');
 //注册路由
 Route::get('/signup','UserController@create')->name('signup');
 
-Route::resource('users','UserController');
+//用户CURD
+Route::resource('/users','UserController');
+
+//登录路由
+Route::get('/login', 'SessionsController@create')->name('login');
+Route::post('/login', 'SessionsController@store')->name('login');
+Route::delete('/logout', 'SessionsController@destroy')->name('logout');
