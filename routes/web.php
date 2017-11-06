@@ -28,3 +28,13 @@ Route::delete('/logout', 'SessionsController@destroy')->name('logout');
 
 //激活码路由
 Route::get('/signup/confirm/{token}','UserController@confirmedEmail')->name('confirm_email');
+
+//忘记密码
+//显示重制密码显示页
+Route::get('password/reset', 'Auth\ForgotPasswordController@showLinkRequestForm')->name('password.request');
+//邮箱发送重设链接
+Route::post('password/email', 'Auth\ForgotPasswordController@sendResetLinkEmail')->name('password.email');
+//密码更新页
+Route::get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm')->name('password.reset');
+//执行密码更新操作
+Route::post('password/reset', 'Auth\ResetPasswordController@reset')->name('password.update');
