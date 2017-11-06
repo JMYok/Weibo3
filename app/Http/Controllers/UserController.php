@@ -22,6 +22,14 @@ class UserController extends Controller
         ]);
     }
 
+    //在个人主页列出所有微博内容
+    public function show(User $user)
+    {
+        $statuses = $user->statuses()->orderBy('created_at','desc')->paginate(30);
+
+        return view('user.show',compact('user','statuses'));
+    }
+
     //列出所有用户
    public function index()
    {
@@ -55,11 +63,7 @@ class UserController extends Controller
         return redirect('/');
     }
 
-   //个人主页
-    public function show(User $user)
-    {
-        return view('user.show',compact('user'));
-    }
+  
 
     //进入编辑页面
     public function edit(User $user)
